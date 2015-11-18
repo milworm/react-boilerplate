@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+}@font-face {
+    font-family: 'ProximaNova';
+    src: url('/fonts/proximaNova/proxima-nova-black/proxima-nova-black.woff') format('woff'),
+    url('/fonts/proximaNova/proxima-nova-black/proxima-nova-black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ProximaNova';
+    src: url('/fonts/proximaNova/proxima-nova-extrabold/proxima-nova-extrabold.woff') format('woff'),
+    url('/fonts/proximaNova/proxima-nova-extrabold/proxima-nova-extrabold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ProximaNova';
+    src: url('/fonts/proximaNova/proxima-nova-semibold/proxima-nova-semibold.woff') format('woff'),
+    url('/fonts/proximaNova/proxima-nova-semibold/proxima-nova-semibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ProximaNova';
+    src: url('/fonts/proximaNova/proxima-nova-regular/proxima-nova-regular.woff') format('woff'),
+    url('/fonts/proximaNova/proxima-nova-regular/proxima-nova-regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}.language-switch {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: #fff;
+}.language-switch .language {
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 4px;
+    margin-left: 10px;
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-weight: bold;
+    border: 2px solid transparent;
+}.language-switch .language.active {
+    border: 2px solid #fff;
+}.layout::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background: rgba(0,0,0,0.7);
+}.layout .layout-inner {
+    position: relative;
+    z-index: 2;
+}html,body{font-family:ProximaNova,sans-serif;font-weight:400;letter-spacing:-.1px;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}

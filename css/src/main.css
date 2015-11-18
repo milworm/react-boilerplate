@@ -1,0 +1,14 @@
+@import "./reset.css";
+@import "./fonts.css";
+
+/* components */
+@import "./components/language-switch.css";
+@import "./layout.css";
+
+html, body {
+    font-family: ProximaNova, sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.1px;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}

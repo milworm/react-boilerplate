@@ -7,8 +7,9 @@ export default React.createClass({
     render: function() {
         return (
             <div className="layout">
-                <LanguageSwitch />
-                <h1>{this.t("hello")}</h1>
+                <div className="layout-inner">
+                    <LanguageSwitch />
+                </div>
             </div>
         );
     }
