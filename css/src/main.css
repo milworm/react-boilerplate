@@ -3,7 +3,6 @@
 
 /* components */
 @import "./components/language-switch.css";
-@import "./views/content.css";
 @import "./layout.css";
 
 html, body {

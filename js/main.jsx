@@ -2,6 +2,6 @@ import "../config/translations";
 
 import React from "react";
 import ReactDom from "react-dom";
-import App from "./app.jsx!";
+import Layout from "./layout.jsx!";
 
-ReactDom.render(<App />, document.getElementById("root"));
+ReactDom.render(<Layout />, document.getElementById("root"));

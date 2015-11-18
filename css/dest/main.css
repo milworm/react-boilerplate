@@ -55,19 +55,39 @@ html, body, #root {
     border: 2px solid transparent;
 }.language-switch .language.active {
     border: 2px solid #fff;
-}.content {
+}.layout {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url(/images/bg.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}.layout::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background: rgba(0,0,0,0.7);
+}.layout .content {
     position: relative;
     z-index: 2;
     display: flex;
     flex-direction: row;
-}.content .description-container {
+}.layout .content .description-container {
     width: 577px;
-}.content .description-container h2 {
+}.layout .content .description-container h2 {
     color: #fff;
     font-size: 24px;
     line-height: 18px;
     margin-bottom: 56px;
-}.content .description-container h2 .logo {
+}.layout .content .description-container h2 .logo {
     background-image: url(/images/logo.png);
     background-position: center;
     background-repeat: no-repeat;
@@ -79,16 +99,16 @@ html, body, #root {
     top: -12px;
     margin-right: 18px;
     float: left;
-}.content .description-container p {
+}.layout .content .description-container p {
     color: #fff;
     font-size: 20px;
     line-height: 30px;
     padding-right: 127px;
-}.content .login-container {
+}.layout .content .login-container {
     width: 300px;
     display: flex;
     flex-direction: column;
-}.content .login-container .login-title {
+}.layout .content .login-container .login-title {
     color: #fff;
     margin-bottom: 41px;
     font-size: 20px;
@@ -96,7 +116,7 @@ html, body, #root {
     text-transform: uppercase;
     font-weight: bold;
     text-align: center;
-}.content .login-container .field {
+}.layout .content .login-container .field {
     height: 30px;
     line-height: 30px;
     margin-bottom: 7px;
@@ -108,7 +128,7 @@ html, body, #root {
     font-size: 18px;
     padding: 0 16px;
     color: #fff;
-}.content .login-container .button {
+}.layout .content .login-container .button {
     height: 30px;
     line-height: 30px;
     background: #ee2227;
@@ -123,24 +143,4 @@ html, body, #root {
     outline: none;
     margin-bottom: 22px;
     cursor: pointer;
-}.layout {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-image: url(/images/bg.png);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;;
-}.layout::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 1;
-    background: rgba(0,0,0,0.7);
 }html,body{font-family:ProximaNova,sans-serif;font-weight:400;letter-spacing:-.1px;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}*{font-family:ProximaNova}

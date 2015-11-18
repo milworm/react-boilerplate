@@ -10,6 +10,8 @@ var gulp = require('gulp'),
     nested = require('postcss-nested'),
     csswring = require('csswring'),
     gutil = require('gutil'),
+    url = require('url'),
+    proxy = require('proxy-middleware'),
     atImport = require('postcss-import'),
     browserSync = require('browser-sync'),
     reload = browserSync.reload;
@@ -35,9 +37,13 @@ gulp.task('css-dev', function() {
 });
 
 gulp.task('watch', function() {
+    var proxyOptions = url.parse('http://edu.challengeu.com');
+    proxyOptions.route = '/api';
+    
     browserSync({
         server: {
-            baseDir: ['./']
+            baseDir: ['./'],
+            middleware: [proxy(proxyOptions)]
         }
     });
 
