@@ -1,8 +1,8 @@
 import React from "react";
-import Eventable from "../mixins/Eventable.jsx!";
+import EventBus from "./EventBus.jsx!";
 
 export default React.createClass({
-    mixins: [Eventable],
+    mixins: [EventBus],
     render: function() {
         return (
             <div className="languages">
@@ -16,9 +16,6 @@ export default React.createClass({
         window.cj.language = language;
         localStorage.setItem("language", language);
 
-        var event = document.createEvent("Event");
-        event.initEvent("language-change", true, true);
-
-        document.dispatchEvent(event);
+        EventBus.fire("language-change");
     }
 });

@@ -1,12 +1,13 @@
 import React from "react";
+import EventBus from "../components/EventBus.jsx!";
 
 export default {
     componentWillMount: function() {
-        document.addEventListener("language-change", this.onLanguageChange);
+        EventBus.on("language-change", this.onLanguageChange);
     },
 
     componentWillUnmount: function() {
-        document.removeEventListener("language-change", this.onLanguageChange);
+        EventBus.un("language-change", this.onLanguageChange);
     },
 
     onLanguageChange: function() {

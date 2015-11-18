@@ -1,10 +1,9 @@
 import React from "react";
 import LanguageSwitch from "./components/LanguageSwitch.jsx!";
 import Translatable from "./mixins/Translatable.jsx!";
-import Eventable from "./mixins/Eventable.jsx!";
 
 export default React.createClass({
-    mixins: [Eventable, Translatable],
+    mixins: [Translatable],
     render: function() {
         return (
             <div className="layout">
