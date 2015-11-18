@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="/css/dest/main.css" />
 
     <script>
+        PageConfig = {
+            hostname: "cn.challengeu.com"
+        }
+    </script>
+
+    <script>
         var language = window.navigator.userLanguage || window.navigator.language;
 
         if(localStorage.getItem("language"))
@@ -16,10 +22,11 @@
         else
             language = "en";
 
-        window.cj = {
+        cj = {
             language: language,
+            config: PageConfig,
             api: function(path) {
-                return "http://localhost:3000/api" + path;
+                return location.protocol + "//" + cj.config.hostname + path;
             }
         };
     </script>
