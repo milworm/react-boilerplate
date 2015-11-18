@@ -3,6 +3,7 @@
 
 /* components */
 @import "./components/language-switch.css";
+@import "./views/content.css";
 @import "./layout.css";
 
 html, body {
@@ -11,4 +12,8 @@ html, body {
     letter-spacing: -0.1px;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+}
+
+* {
+    font-family: ProximaNova;
 }

@@ -1,8 +1,9 @@
 .language-switch {
-    position: absolute;
+    position: fixed;
     right: 20px;
     top: 20px;
     color: #fff;
+    z-index: 2;
 
     .language {
         cursor: pointer;
