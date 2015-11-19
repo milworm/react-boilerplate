@@ -5,7 +5,8 @@ window.translations = {
         "login-title": "Login to your account",
         "login-button": "LOGIN",
         "username-placeholder": "Username",
-        "password-placeholder": "Password2"
+        "password-placeholder": "Password2",
+        "show-login-form-button": "Login to your account"
     },
     "fr": {
         "description-title": "Knowledge Portal",
@@ -13,6 +14,7 @@ window.translations = {
         "login-title": "Login to your account",
         "login-button": "LOGIN",
         "username-placeholder": "Username2",
-        "password-placeholder": "Password"
+        "password-placeholder": "Password",
+        "show-login-form-button": "Login to your account"
     }
 }

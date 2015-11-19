@@ -5,6 +5,7 @@ en:
     login-button: LOGIN
     username-placeholder: Username
     password-placeholder: Password2
+    show-login-form-button: Login to your account
 
 fr:
     description-title: Knowledge Portal
@@ -13,3 +14,4 @@ fr:
     login-button: LOGIN
     username-placeholder: Username2
     password-placeholder: Password
+    show-login-form-button: Login to your account

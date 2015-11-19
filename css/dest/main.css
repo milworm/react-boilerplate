@@ -65,8 +65,7 @@ html, body, #root {
     background-image: url(/images/bg.png);
     background-position: center;
     background-size: cover;
-    background-repeat: no-repeat;
-}.layout::after {
+    background-repeat: no-repeat;}.layout::after {
     content: "";
     position: fixed;
     top: 0;
@@ -80,14 +79,12 @@ html, body, #root {
     z-index: 2;
     display: flex;
     flex-direction: row;
-}.layout .content .description-container {
-    width: 577px;
-}.layout .content .description-container h2 {
+}.layout .description-container h2 {
     color: #fff;
     font-size: 24px;
     line-height: 18px;
     margin-bottom: 56px;
-}.layout .content .description-container h2 .logo {
+}.layout .description-container h2 .logo {
     background-image: url(/images/logo.png);
     background-position: center;
     background-repeat: no-repeat;
@@ -95,20 +92,16 @@ html, body, #root {
     height: 28px;
     width: 70px;
     display: inline-block;
-    position: relative;
-    top: -12px;
     margin-right: 18px;
-    float: left;
-}.layout .content .description-container p {
+}.layout .description-container p {
     color: #fff;
     font-size: 20px;
     line-height: 30px;
-    padding-right: 127px;
-}.layout .content .login-container {
+}.layout .login-container {
     width: 300px;
     display: flex;
     flex-direction: column;
-}.layout .content .login-container .login-title {
+}.layout .login-container .login-title {
     color: #fff;
     margin-bottom: 41px;
     font-size: 20px;
@@ -116,7 +109,7 @@ html, body, #root {
     text-transform: uppercase;
     font-weight: bold;
     text-align: center;
-}.layout .content .login-container .field {
+}.layout .login-container .field {
     height: 30px;
     line-height: 30px;
     margin-bottom: 7px;
@@ -128,7 +121,9 @@ html, body, #root {
     font-size: 18px;
     padding: 0 16px;
     color: #fff;
-}.layout .content .login-container .button {
+    width: 300px;
+    box-sizing: border-box;
+}.layout .login-container .button {
     height: 30px;
     line-height: 30px;
     background: #ee2227;
@@ -143,4 +138,66 @@ html, body, #root {
     outline: none;
     margin-bottom: 22px;
     cursor: pointer;
+    width: 300px;
+}
+
+/* phones, tablets */
+@media screen and (max-width: 1280px) {
+    .layout .content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .layout .description-container {
+        width: 100%;
+        max-width: 468px;
+    }
+    .layout .description-container h2 {
+        text-align: center;
+    }
+    .layout .description-container p {
+        font-size: 17px;
+        padding: 20px;
+        text-align: center;
+    }
+    .layout .login-container {
+        display: none;
+    }
+    .layout .show-login-form-button {
+        height: 30px;
+        line-height: 30px;
+        background: none;
+        border-radius: 4px;
+        border: 2px solid #fff;
+        color: #fff;
+        text-align: center;
+        height: 55px;
+        font-size: 20px;
+        font-weight: bold;
+        outline: none;
+        cursor: pointer;
+        text-transform: uppercase;
+        width: 300px;
+        margin-top: 46px;
+    }
+    .layout.login-form-visible .description-container,
+            .layout.login-form-visible .show-login-form-button {
+        display: none;
+    }
+    .layout.login-form-visible .login-container {
+        display: block;
+    }
+}
+
+/* desktop */
+@media screen and (min-width: 1281px) {
+    .layout .description-container {
+        width: 577px;
+        margin-top: -13px;
+    }
+    .layout .description-container p {
+        padding-right: 127px;
+    }
+    .layout .show-login-form-button {
+        display: none;
+    }
 }html,body{font-family:ProximaNova,sans-serif;font-weight:400;letter-spacing:-.1px;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}*{font-family:ProximaNova}

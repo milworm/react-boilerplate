@@ -5,9 +5,19 @@ import Http from "./core/Http.jsx!";
 
 export default React.createClass({
     mixins: [Translatable],
+
+    getInitialState: function() {
+        return {}
+    },
+
     render: function() {
+        var cls = "";
+
+        if(this.state.showLoginForm)
+            cls = "login-form-visible";
+
         return (
-            <div className="layout">
+            <div className={"layout " + cls}>
                 <LanguageSwitch />
                 <div className="content">
                     <div className="description-container">
@@ -25,6 +35,7 @@ export default React.createClass({
                         <input type="password" className="field" placeholder={this.t("password-placeholder")} ref="password" />
                         <input type="button" className="button" value={this.t("login-button")} onClick={this.login}/>
                     </div>
+                    <input type="button" className="show-login-form-button" value={this.t("show-login-form-button")} onClick={this.showLoginForm}/>
                 </div>
             </div>
         );
@@ -47,6 +58,12 @@ export default React.createClass({
             data: formData,
             success: this.onLoginSuccess,
             failure: this.onLoginFailure
+        });
+    },
+
+    showLoginForm: function() {
+        this.setState({
+            showLoginForm: true
         });
     },
 
