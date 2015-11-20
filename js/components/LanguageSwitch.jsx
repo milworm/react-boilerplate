@@ -1,5 +1,5 @@
 import React from "react";
-import EventBus from "./EventBus.jsx!";
+import EventBus from "./EventBus.jsx";
 import cls from "classnames";
 
 export default React.createClass({

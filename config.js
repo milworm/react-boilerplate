@@ -13,13 +13,19 @@ System.config({
     "npm:*": "jspm_packages/npm/*"
   },
 
+  packages: {
+    "js": {
+      "defaultExtension": "jsx"
+    }
+  },
+
   map: {
     "babel": "npm:babel-core@5.8.34",
     "babel-runtime": "npm:babel-runtime@5.8.34",
     "classnames": "npm:classnames@2.2.0",
     "core-js": "npm:core-js@1.2.6",
     "jsx": "github:floatdrop/plugin-jsx@1.1.0",
-    "react": "npm:react@0.14.2",
+    "react": "npm:react@0.14.3",
     "react-dom": "npm:react-dom@0.14.2",
     "github:floatdrop/plugin-jsx@1.1.0": {
       "react-tools": "npm:react-tools@0.13.3"
@@ -198,7 +204,7 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.2",
       "systemjs-json": "github:systemjs/plugin-json@0.1.0"
     },
-    "npm:core-util-is@1.0.1": {
+    "npm:core-util-is@1.0.2": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0"
     },
     "npm:create-ecdh@4.0.0": {
@@ -427,9 +433,14 @@ System.config({
       "fbjs": "npm:fbjs@0.3.2",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
+    "npm:react@0.14.3": {
+      "envify": "npm:envify@3.4.0",
+      "fbjs": "npm:fbjs@0.3.2",
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
     "npm:readable-stream@1.1.13": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
-      "core-util-is": "npm:core-util-is@1.0.1",
+      "core-util-is": "npm:core-util-is@1.0.2",
       "events": "github:jspm/nodelibs-events@0.1.1",
       "inherits": "npm:inherits@2.0.1",
       "isarray": "npm:isarray@0.0.1",

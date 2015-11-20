@@ -1,7 +1,7 @@
 import React from "react";
-import LanguageSwitch from "./components/LanguageSwitch.jsx!";
-import Translatable from "./mixins/Translatable.jsx!";
-import Http from "./core/Http.jsx!";
+import LanguageSwitch from "./components/LanguageSwitch.jsx";
+import Translatable from "./mixins/Translatable.jsx";
+import Http from "./core/Http.jsx";
 
 export default React.createClass({
     mixins: [Translatable],
@@ -31,8 +31,8 @@ export default React.createClass({
 
                     <div className="login-container">
                         <div className="login-title">{this.t("login-title")}</div>
-                        <input type="text" className="field" placeholder={this.t("username-placeholder")} ref="username" />
-                        <input type="password" className="field" placeholder={this.t("password-placeholder")} ref="password" />
+                        <input type="text" className="field" placeholder={this.t("username-placeholder")} ref2="username" />
+                        <input type="password" className="field" placeholder={this.t("password-placeholder")} ref2="password" />
                         <input type="button" className="button" value={this.t("login-button")} onClick={this.login}/>
                     </div>
                     <input type="button" className="show-login-form-button" value={this.t("show-login-form-button")} onClick={this.showLoginForm}/>

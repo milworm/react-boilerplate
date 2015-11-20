@@ -1,5 +1,6 @@
 import React from "react";
-import EventBus from "../components/EventBus.jsx!";
+import Translations from "../../config/translations";
+import EventBus from "../components/EventBus.jsx";
 
 export default {
     componentWillMount: function() {
@@ -15,6 +16,6 @@ export default {
     },
 
     t: function(key) {
-        return window.translations[window.cj.language][key];
+        return Translations[cj.language][key];
     }
 };

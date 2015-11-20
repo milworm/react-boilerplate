@@ -1,4 +1,4 @@
-window.translations = {
+export default {
     "en": {
         "description-title": "Knowledge Portal",
         "description-text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy textthe 1500s.",

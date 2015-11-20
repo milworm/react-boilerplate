@@ -39,11 +39,14 @@ gulp.task('css-dev', function() {
 gulp.task('watch', function() {
     var proxyOptions = url.parse('http://edu.challengeu.com');
     proxyOptions.route = '/api';
+
+    var proxyOptions2 = url.parse('http://localhost:4000/portal/login');
+    proxyOptions2.route = '/login';
     
     browserSync({
         server: {
             baseDir: ['./'],
-            middleware: [proxy(proxyOptions)]
+            middleware: [proxy(proxyOptions), proxy(proxyOptions2)]
         }
     });
 
@@ -59,7 +62,8 @@ gulp.task('watch', function() {
         gulp.src('config/translations.yaml')
             .pipe(yaml({ space: 4 }))
             .pipe(change(function(content) {
-                return content.replace(/\{/, 'window.translations = {');
+                return content.replace(/\{/, 'export default {');
+                // return content.replace(/\{/, 'window.translations = {');
             }))
             .pipe(rename(function(path) {
                 path.extname = ".js";

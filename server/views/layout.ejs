@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>React</title>
+
+    <link rel="stylesheet" href="http://localhost:3000/css/dest/main.css" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+
+    <script>
+        PageConfig = {
+            "hostname": "cn.challengeu.com",
+            "translations": {
+                "en": {
+                    "description-title": "Knowledge Portal",
+                    "description-text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy textthe 1500s.",
+                    "support": "bla bla bla"
+                },
+
+                "fr": {
+                    "description-title": "Knowledge Portal",
+                    "description-text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy textthe 1500s.",
+                    "support": "bla bla bla"
+                }
+            },
+            "support": {
+                "email": "cn.support@challengeu.com",
+                "phone": "+1 324 233 12 32"
+            },
+            "ui": {
+                "loginButton": {
+                    color: "red"
+                },
+                "content": {
+                    "align": "center",
+                    "backgroundImage": "/images/bg.png"
+                }
+            }
+        }
+    </script>
+
+    <script>
+        var language = window.navigator.userLanguage || window.navigator.language;
+
+        if(localStorage.getItem("language"))
+            language = localStorage.getItem("language");
+        else if(language.match(/fr/))
+            language = "fr";
+        else
+            language = "en";
+
+        cj = {
+            language: language,
+            config: PageConfig,
+            api: function(path) {
+                return location.protocol + "//" + cj.config.hostname + path;
+            }
+        };
+    </script>
+</head>
+<body>
+    <div id="root"><%- content %></div>
+    <script src="http://localhost:3000/build/main.js"></script>
+</body>
+</html>
