@@ -4,6 +4,7 @@ require('babel-core/register')({
 
 var koa = require('koa'),
     router = require('koa-router')(),
+    locale = require('koa-locale'),
     React = require('react'),
     ReactDOMServer = require('react-dom/server'),
     Layout = React.createFactory(require('../js/layout.jsx').default),
@@ -11,13 +12,14 @@ var koa = require('koa'),
     app = koa(),
     render;
 
+locale(app);
 render = views('views', {
     ext: 'ejs'
 });
 
-function renderReactStaticMarkup(config) {
+function renderReactStaticMarkup(config, language) {
     global.cj = {
-        language: "fr"
+        language: language
     };
 
     var content = ReactDOMServer.renderToString(Layout());
@@ -57,12 +59,15 @@ function getPortalLoginConfig(callback) {
 
 router.get('/portal/login', function *(next) {
     // @TODO portal should be received from domain-name.
-    var portal = 'cn',
+    var language = this.getLocaleFromCookie(),
+        portal = 'cn',
         config,
         html;
 
+    language = ["en", "fr"].indexOf(language) > -1 ? language : "fr";
+
     config = yield getPortalLoginConfig;
-    html = yield renderReactStaticMarkup(config);
+    html = yield renderReactStaticMarkup(config, language);
 
     this.body = html;
 
@@ -71,3 +76,4 @@ router.get('/portal/login', function *(next) {
 
 app.use(router.routes());
 app.listen(4000);
+console.log("running on 4000");

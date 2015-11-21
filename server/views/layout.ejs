@@ -40,10 +40,12 @@
     </script>
 
     <script>
-        var language = window.navigator.userLanguage || window.navigator.language;
+        var language = window.navigator.userLanguage || window.navigator.language,
+            cookies = document.cookie,
+            languageInCookies = cookies.match(/locale=([a-zA-Z]+);?/) || [];
 
-        if(localStorage.getItem("language"))
-            language = localStorage.getItem("language");
+        if(languageInCookies.length)
+            language = languageInCookies[1];
         else if(language.match(/fr/))
             language = "fr";
         else
