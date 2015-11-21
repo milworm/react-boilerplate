@@ -66,7 +66,7 @@ html, body, #root {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-}.layout::after {
+}.layout::before {
     content: "";
     position: fixed;
     top: 0;
@@ -140,12 +140,40 @@ html, body, #root {
     margin-bottom: 22px;
     cursor: pointer;
     text-transform: uppercase;
+    -webkit-appearance: none;
 }.layout.login-form-invalid .field {
     border: 1px solid #ee2227;
     color: rgba(169, 25, 29, 0.7);
 }.layout.login-form-invalid .button {
     background: #fff;
     color: #ee2227;
+}.layout footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 100px;
+    line-height: 100px;
+    width: 100%;
+    z-index: 2;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}.layout footer .inner {
+    font-size: 15px;
+    line-height: 15px;
+    max-width: 877px;
+}.layout footer .title {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 15px;
+}.layout footer .email {
+    font-weight: bold;
+    color: #ee2227;
+    padding-right: 5px;
+}.layout footer .phone {
+    padding-left: 5px;
 }
 
 /* phones, tablets */
@@ -193,6 +221,9 @@ html, body, #root {
     .layout.login-form-visible .login-container {
         display: block;
     }
+    .layout footer .title {
+        text-align: center;
+    }
 }
 
 /* desktop */
@@ -206,5 +237,8 @@ html, body, #root {
     }
     .layout .show-login-form-button {
         display: none;
+    }
+    .layout footer .inner {
+        width: 877px;
     }
 }html,body{font-family:ProximaNova,sans-serif;font-weight:400;letter-spacing:-.1px;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}*{font-family:ProximaNova}

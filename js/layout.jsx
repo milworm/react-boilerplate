@@ -2,6 +2,7 @@ import React from "react";
 import LanguageSwitch from "./components/LanguageSwitch.jsx";
 import Translatable from "./mixins/Translatable.jsx";
 import Http from "./core/Http.jsx";
+import Utils from "./core/Utils.jsx";
 import cls from "classnames";
 
 export default React.createClass({
@@ -47,6 +48,11 @@ export default React.createClass({
                     </div>
                     <input type="button" className="show-login-form-button" value={this.t("show-login-form-button")} onClick={this.showLoginForm}/>
                 </div>
+                <footer>
+                    <div className="inner" dangerouslySetInnerHTML={{
+                        __html: Utils.tpl(this.t("support"), cj.config.support)
+                    }}></div>
+                </footer>
             </div>
         );
     },

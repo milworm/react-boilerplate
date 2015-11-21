@@ -63,7 +63,6 @@ gulp.task('watch', function() {
             .pipe(yaml({ space: 4 }))
             .pipe(change(function(content) {
                 return content.replace(/\{/, 'export default {');
-                // return content.replace(/\{/, 'window.translations = {');
             }))
             .pipe(rename(function(path) {
                 path.extname = ".js";
