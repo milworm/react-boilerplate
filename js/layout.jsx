@@ -50,7 +50,7 @@ export default React.createClass({
                 </div>
                 <footer>
                     <div className="inner" dangerouslySetInnerHTML={{
-                        __html: Utils.tpl(this.t("support"), cj.config.support)
+                        __html: Utils.tpl(this.t("support"), cj.portal.support)
                     }}></div>
                 </footer>
             </div>

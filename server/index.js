@@ -17,11 +17,7 @@ render = views('views', {
     ext: 'ejs'
 });
 
-function renderReactStaticMarkup(config, language) {
-    global.cj = {
-        language: language
-    };
-
+function renderReactStaticMarkup(config) {
     var content = ReactDOMServer.renderToString(Layout());
 
     return render('layout', {
@@ -30,46 +26,62 @@ function renderReactStaticMarkup(config, language) {
     });
 }
 
-function getPortalLoginConfig(callback) {
-    var data = {
-        hostname: "cn.challengeu.com",
-        translations: {
-            en: {
-                "description-title": "Knowledge Portal",
-                "description-text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy textthe 1500s.",
-                "support": "bla bla bla"
-            },
-
-            fr: {
-                "description-title": "Knowledge Portal",
-                "description-text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy textthe 1500s.",
-                "support": "bla bla bla"
+function getPortalLoginConfig(portal) {
+    return function(callback) {
+        var data = {
+            hostname: portal + ".challengeu.com",
+            portal: {
+                support: {
+                    email: portal + ".support@challengeu.com",
+                    phone: "+1 324 233 12 32"
+                },
+                translations: {
+                    en: {
+                        "description-title": portal.charAt(0).toUpperCase() + portal.substring(1) + " Education Portal",
+                        "description-text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy textthe 1500s."
+                    },
+                    fr: {
+                        "description-title": portal.charAt(0).toUpperCase() + portal.substring(1) + " Portail de l'éducation",
+                        "description-text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy textthe 1500s."
+                    }
+                }
             }
-        },
-        support: {
-            email: "cn.support@challengeu.com",
-            phone: "+1 324 233 12 32"
-        }
-    };
+        };
 
-    setTimeout(function() {
-        callback(null, data);
-    }, 500);
+        setTimeout(function() {
+            callback(null, data);
+        }, 500);
+    }
 }
 
-router.get('/portal/login', function *(next) {
+router.get('/tesla/login', function *(next) {
     // @TODO portal should be received from domain-name.
     var language = this.getLocaleFromCookie(),
-        portal = 'cn',
-        config,
-        html;
+        config;
 
     language = ["en", "fr"].indexOf(language) > -1 ? language : "fr";
 
-    config = yield getPortalLoginConfig;
-    html = yield renderReactStaticMarkup(config, language);
+    config = yield getPortalLoginConfig('tesla');
+    config.language = language;
 
-    this.body = html;
+    global.cj = config;
+    this.body = yield renderReactStaticMarkup(config);
+
+    yield next;
+});
+
+router.get('/cn/login', function *(next) {
+    // @TODO portal should be received from domain-name.
+    var language = this.getLocaleFromCookie(),
+        config;
+
+    language = ["en", "fr"].indexOf(language) > -1 ? language : "fr";
+
+    config = yield getPortalLoginConfig('cn');
+    config.language = language;
+
+    global.cj = config;
+    this.body = yield renderReactStaticMarkup(config);
 
     yield next;
 });

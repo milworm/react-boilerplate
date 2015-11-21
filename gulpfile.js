@@ -40,13 +40,16 @@ gulp.task('watch', function() {
     var proxyOptions = url.parse('http://edu.challengeu.com/auth/submit');
     proxyOptions.route = '/auth/submit';
 
-    var proxyOptions2 = url.parse('http://localhost:4000/portal/login');
-    proxyOptions2.route = '/login';
+    var proxyOptions2 = url.parse('http://localhost:4000/tesla/login');
+    proxyOptions2.route = '/tesla/login';
+
+    var proxyOptions3 = url.parse('http://localhost:4000/cn/login');
+    proxyOptions3.route = '/cn/login';
     
     browserSync({
         server: {
             baseDir: ['./'],
-            middleware: [proxy(proxyOptions), proxy(proxyOptions2)]
+            middleware: [proxy(proxyOptions), proxy(proxyOptions2), proxy(proxyOptions3)]
         }
     });
 
