@@ -26,7 +26,7 @@ System.config({
     "core-js": "npm:core-js@1.2.6",
     "jsx": "github:floatdrop/plugin-jsx@1.1.0",
     "react": "npm:react@0.14.3",
-    "react-dom": "npm:react-dom@0.14.2",
+    "react-dom": "npm:react-dom@0.14.3",
     "github:floatdrop/plugin-jsx@1.1.0": {
       "react-tools": "npm:react-tools@0.13.3"
     },
@@ -419,18 +419,13 @@ System.config({
       "crypto": "github:jspm/nodelibs-crypto@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:react-dom@0.14.2": {
-      "react": "npm:react@0.14.2"
+    "npm:react-dom@0.14.3": {
+      "react": "npm:react@0.14.3"
     },
     "npm:react-tools@0.13.3": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "commoner": "npm:commoner@0.10.4",
       "jstransform": "npm:jstransform@10.1.0",
-      "process": "github:jspm/nodelibs-process@0.1.2"
-    },
-    "npm:react@0.14.2": {
-      "envify": "npm:envify@3.4.0",
-      "fbjs": "npm:fbjs@0.3.2",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:react@0.14.3": {

@@ -86,7 +86,8 @@
         }
 
         .button {
-            height: 30px;
+            width: 300px;
+            height: 55px;
             line-height: 30px;
             background: #ee2227;
             border-radius: 4px;
@@ -94,15 +95,27 @@
             color: #fff;
             text-align: left;
             padding: 0 18px;
-            height: 55px;
             font-size: 14px;
             font-weight: bold;
             outline: none;
             margin-bottom: 22px;
             cursor: pointer;
-            width: 300px;
+            text-transform: uppercase;
         }
-    }}
+    }
+
+    &.login-form-invalid {
+        .field {
+            border: 1px solid #ee2227;
+            color: rgba(169, 25, 29, 0.7);
+        }
+
+        .button {
+            background: #fff;
+            color: #ee2227;
+        }
+    }
+}
 
 /* phones, tablets */
 @media screen and (max-width: 1280px) {

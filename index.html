@@ -9,7 +9,6 @@
 
     <script>
         PageConfig = {
-            "hostname": "cn.challengeu.com",
             "translations": {
                 "en": {
                     "description-title": "Knowledge Portal",
@@ -53,7 +52,7 @@
             language: language,
             config: PageConfig,
             api: function(path) {
-                return location.protocol + "//" + cj.config.hostname + path;
+                return location.protocol + "//" + location.host + path;
             }
         };
     </script>

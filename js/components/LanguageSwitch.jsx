@@ -22,8 +22,8 @@ export default React.createClass({
     },
 
     change: function(language) {
-        cj.language = language;
         document.cookie = "locale=" + language;
+        cj.language = language;
 
         this.setState({
             language: language

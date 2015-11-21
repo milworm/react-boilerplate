@@ -65,7 +65,8 @@ html, body, #root {
     background-image: url(/images/bg.png);
     background-position: center;
     background-size: cover;
-    background-repeat: no-repeat;}.layout::after {
+    background-repeat: no-repeat;
+}.layout::after {
     content: "";
     position: fixed;
     top: 0;
@@ -124,7 +125,8 @@ html, body, #root {
     width: 300px;
     box-sizing: border-box;
 }.layout .login-container .button {
-    height: 30px;
+    width: 300px;
+    height: 55px;
     line-height: 30px;
     background: #ee2227;
     border-radius: 4px;
@@ -132,13 +134,18 @@ html, body, #root {
     color: #fff;
     text-align: left;
     padding: 0 18px;
-    height: 55px;
     font-size: 14px;
     font-weight: bold;
     outline: none;
     margin-bottom: 22px;
     cursor: pointer;
-    width: 300px;
+    text-transform: uppercase;
+}.layout.login-form-invalid .field {
+    border: 1px solid #ee2227;
+    color: rgba(169, 25, 29, 0.7);
+}.layout.login-form-invalid .button {
+    background: #fff;
+    color: #ee2227;
 }
 
 /* phones, tablets */

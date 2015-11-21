@@ -37,8 +37,8 @@ gulp.task('css-dev', function() {
 });
 
 gulp.task('watch', function() {
-    var proxyOptions = url.parse('http://edu.challengeu.com');
-    proxyOptions.route = '/api';
+    var proxyOptions = url.parse('http://edu.challengeu.com/auth/submit');
+    proxyOptions.route = '/auth/submit';
 
     var proxyOptions2 = url.parse('http://localhost:4000/portal/login');
     proxyOptions2.route = '/login';

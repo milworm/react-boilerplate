@@ -2,22 +2,24 @@ import React from "react";
 import LanguageSwitch from "./components/LanguageSwitch.jsx";
 import Translatable from "./mixins/Translatable.jsx";
 import Http from "./core/Http.jsx";
+import cls from "classnames";
 
 export default React.createClass({
     mixins: [Translatable],
 
     getInitialState: function() {
-        return {}
+        return {
+            formIsInvalid: false,
+            showLoginForm: false
+        }
     },
 
     render: function() {
-        var cls = "";
-
-        if(this.state.showLoginForm)
-            cls = "login-form-visible";
-
         return (
-            <div className={"layout " + cls}>
+            <div className={cls("layout", {
+                "login-form-visible": this.state.showLoginForm,
+                "login-form-invalid": this.state.formIsInvalid
+            })}>
                 <LanguageSwitch />
                 <div className="content">
                     <div className="description-container">
@@ -31,14 +33,35 @@ export default React.createClass({
 
                     <div className="login-container">
                         <div className="login-title">{this.t("login-title")}</div>
-                        <input type="text" className="field" placeholder={this.t("username-placeholder")} ref2="username" />
-                        <input type="password" className="field" placeholder={this.t("password-placeholder")} ref2="password" />
-                        <input type="button" className="button" value={this.t("login-button")} onClick={this.login}/>
+                        <input type="text" 
+                                className="field" 
+                                placeholder={this.t("username-placeholder")} 
+                                ref="username" 
+                                onInput={this.onFieldChange} />
+                        <input type="password" 
+                                className="field" 
+                                placeholder={this.t("password-placeholder")} 
+                                ref="password" 
+                                onInput={this.onFieldChange} />
+                        <input type="button" className="button" value={this.getLoginButtonText()} onClick={this.login}/>
                     </div>
                     <input type="button" className="show-login-form-button" value={this.t("show-login-form-button")} onClick={this.showLoginForm}/>
                 </div>
             </div>
         );
+    },
+
+    onFieldChange: function() {
+        this.setState({
+            formIsInvalid: false
+        });
+    },
+
+    getLoginButtonText: function() {
+        if(this.state.formIsInvalid)
+            return this.t("invalid-login-button");
+        
+        return this.t("login-button");
     },
 
     login: function() {
@@ -79,12 +102,12 @@ export default React.createClass({
         }
 
         if(json.success)
-            alert("Congrats!");
-        else
-            alert("validation");
+            return alert("Super");
+        
+        this.setState({
+            formIsInvalid: true
+        });
     },
 
-    onLoginFailure: function() {
-        alert("error");
-    }
+    onLoginFailure: function() {}
 });
