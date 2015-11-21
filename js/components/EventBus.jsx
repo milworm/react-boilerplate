@@ -1,27 +1,41 @@
-import React from "react";
+export default new class Observer {
+    constructor() {
+        this.handlers = {};
+    }
 
-export default {
-    on: function(event, callback) {
-        if(typeof document == "undefined")
+    on(name, callback, scope) {
+        (this.handlers[name] = this.handlers[name] || []).push({
+            name: name,
+            callback: callback,
+            scope: scope
+        });
+    }
+
+    un(name, callback, scope) {
+        if(! this.handlers[name])
             return ;
 
-        document.addEventListener(event, callback);
-    },
+        var handlers = this.handlers[name],
+            i = handlers.length;
 
-    un: function(event, callback) {
-        if(typeof document == "undefined")
+        while(i --) {
+            var handler = handlers[i];
+
+            if(handler.callback == callback && handler.scope == scope)
+                handlers.splice(i, 1);
+        }
+    }
+
+    fire(name) {
+        var handlers = this.handlers[name];
+
+        if(! handlers)
             return ;
 
-        document.removeEventListener(event, callback);
-    },
-
-    fire: function(name) {
-        if(typeof document == "undefined")
-            return ;
-
-        var event = document.createEvent("Event");
-
-        event.initEvent(name, true, true);
-        document.dispatchEvent(event);
+        var args = [].slice.call(arguments, 1);
+        
+        for(var i=0, item; item=handlers[i]; i++) {
+            item.callback.apply(item.scope, args);
+        }
     }
 }
