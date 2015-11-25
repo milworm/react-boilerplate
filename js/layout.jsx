@@ -20,12 +20,16 @@ export default React.createClass({
             <div className={cls("layout", {
                 "login-form-visible": this.state.showLoginForm,
                 "login-form-invalid": this.state.formIsInvalid
-            })}>
+            })} style={{
+                backgroundImage: Utils.tpl('url("{background_url}")', cj.portal.ui)
+            }}>
                 <LanguageSwitch />
                 <div className="content">
                     <div className="description-container">
                         <h2>
-                            <i className="logo"></i>{this.t("description-title")}
+                            <i className="logo" style={{
+                                backgroundImage: Utils.tpl('url("{logo_url}")', cj.portal.ui)
+                            }}></i>{this.t("description-title")}
                         </h2>
                         <p>
                             {this.t("description-text")}
@@ -44,9 +48,18 @@ export default React.createClass({
                                 placeholder={this.t("password-placeholder")} 
                                 ref="password" 
                                 onInput={this.onFieldChange} />
-                        <input type="button" className="button" value={this.getLoginButtonText()} onClick={this.login}/>
+                        <input type="button" 
+                                className="button" 
+                                value={this.getLoginButtonText()} 
+                                onClick={this.login}
+                                style={{
+                                    background: cj.portal.ui.login_button_bg
+                                }} />
                     </div>
-                    <input type="button" className="show-login-form-button" value={this.t("show-login-form-button")} onClick={this.showLoginForm}/>
+                    <input type="button" 
+                            className="show-login-form-button" 
+                            value={this.t("show-login-form-button")} 
+                            onClick={this.showLoginForm} />
                 </div>
                 <footer>
                     <div className="inner" dangerouslySetInnerHTML={{

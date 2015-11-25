@@ -31,17 +31,22 @@ function getPortalLoginConfig(portal) {
         var data = {
             hostname: portal + ".challengeu.com",
             portal: {
+                ui: {
+                    logo_url: "/images/" + portal + "_logo.png",
+                    background_url: "/images/" + portal + "_background.png",
+                    login_button_bg: portal == "cn" ? "#ee2227" : "#2e7d32"
+                },
                 support: {
                     email: portal + ".support@challengeu.com",
                     phone: "+1 324 233 12 32"
                 },
                 translations: {
                     en: {
-                        "description-title": portal.charAt(0).toUpperCase() + portal.substring(1) + " Education Portal",
+                        "description-title": "Education Portal",
                         "description-text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy textthe 1500s."
                     },
                     fr: {
-                        "description-title": portal.charAt(0).toUpperCase() + portal.substring(1) + " Portail de l'éducation",
+                        "description-title": "Portail de l'éducation",
                         "description-text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy textthe 1500s."
                     }
                 }
